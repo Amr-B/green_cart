@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import '../../../utils/colors.dart';
 
-class KAuthSettings extends StatelessWidget {
+class KAuthSettingsLogin extends StatelessWidget {
   final bool rememberMe;
   final ValueChanged<bool?> onRememberChanged;
   final VoidCallback onRegisterTap;
 
-  const KAuthSettings({
+  const KAuthSettingsLogin({
     super.key,
     required this.rememberMe,
     required this.onRememberChanged,

@@ -5,4 +5,13 @@ class KImages {
 
   // > login screen
   static const String logo = 'assets/images/logo.png';
+
+  // > home screen
+  // > categoires - home
+  static const String vegetables = 'assets/images/groceries/vegetables.png';
+  static const String fruits = 'assets/images/groceries/fruits.png';
+  static const String dairy = 'assets/images/groceries/dairy.png';
+  static const String meat = 'assets/images/groceries/meat.png';
+  // > groceries - home
+  static const String potatos = 'assets/images/groceries/potatos.png';
 }

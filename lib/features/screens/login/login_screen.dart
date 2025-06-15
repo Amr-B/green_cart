@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:green_cart/common/appbar.dart';
+import 'package:green_cart/common/text_field.dart';
+import 'package:green_cart/features/screens/home/home_screen.dart';
 import 'package:green_cart/features/screens/login/widgets/auth_settings.dart';
-import 'package:green_cart/features/screens/login/widgets/login_button.dart';
-import 'package:green_cart/features/screens/login/widgets/password_field.dart';
-import 'package:green_cart/features/screens/login/widgets/email_fields.dart';
+import 'package:green_cart/common/button.dart';
+import 'package:green_cart/features/screens/register/register_screen.dart';
+import 'package:green_cart/features/utils/animations.dart';
 import 'package:green_cart/features/utils/colors.dart';
 import 'package:green_cart/features/utils/images.dart';
 import 'package:green_cart/features/utils/texts.dart';
@@ -17,6 +19,8 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   bool rememberMe = false;
 
   @override
@@ -25,30 +29,52 @@ class _LoginScreenState extends State<LoginScreen> {
 
     return Scaffold(
       backgroundColor: KColors.background,
-      appBar: const KAppBar(title: 'Login'),
+      appBar: KAppBar(title: 'Login'),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(horizontal: 25),
+        padding: EdgeInsets.symmetric(horizontal: 25),
         child: Column(
           children: [
+            SizedBox(height: screenHeight * 0.08),
             _buildLogo(screenHeight),
-            const SizedBox(height: 20),
+            SizedBox(height: 20),
             _buildHeadlines(),
-            const SizedBox(height: 20),
-            const KEmailField(),
-            const SizedBox(height: 20),
-            const KPasswordField(),
-            const SizedBox(height: 10),
-            KAuthSettings(
+            SizedBox(height: 30),
+
+            AuthTextField(
+              controller: emailController,
+              obscureText: false,
+              icon: Icons.email_outlined,
+              hintText: 'Email',
+            ),
+            const SizedBox(height: 15),
+            AuthTextField(
+              controller: passwordController,
+              obscureText: true,
+              icon: Icons.lock_outline,
+              hintText: 'Password',
+            ),
+
+            // > remember me
+            KAuthSettingsLogin(
               rememberMe: rememberMe,
               onRememberChanged: (value) {
                 setState(() => rememberMe = value!);
               },
+
+              // > register instead
               onRegisterTap: () {
-                Navigator.pushNamed(context, '/register');
+                Navigator.push(
+                    context, CustomPageRoute(child: RegisterScreen()));
               },
             ),
-            const SizedBox(height: 10),
-            KLoginButton(screenHeight: screenHeight),
+            SizedBox(height: 10),
+            KButton(
+              onTap: () {
+                Navigator.push(context, CustomPageRoute(child: HomeScreen()));
+              },
+              screenHeight: screenHeight,
+              title: 'Login',
+            ),
           ],
         ),
       ),
@@ -59,7 +85,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return Center(
       child: Image.asset(
         KImages.logo,
-        height: screenHeight * 0.3,
+        height: screenHeight * 0.2,
       ),
     );
   }
@@ -69,16 +95,16 @@ class _LoginScreenState extends State<LoginScreen> {
       children: [
         Text(
           KText.headLineLogin,
-          style: const TextStyle(
+          style: TextStyle(
             fontSize: 28,
             fontWeight: FontWeight.bold,
             color: KColors.primary,
           ),
         ),
-        const SizedBox(height: 8),
+        SizedBox(height: 8),
         Text(
           KText.subTitleLogin,
-          style: const TextStyle(
+          style: TextStyle(
             fontSize: 14,
             color: KColors.primary,
           ),
