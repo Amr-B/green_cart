@@ -14,4 +14,7 @@ class KImages {
   static const String meat = 'assets/images/groceries/meat.png';
   // > groceries - home
   static const String potatos = 'assets/images/groceries/potatos.png';
+
+  // > details page
+  static const String starIcon = 'assets/images/icons/star.png';
 }
