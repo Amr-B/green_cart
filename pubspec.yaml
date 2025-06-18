@@ -21,6 +21,7 @@ dependencies:
   carousel_slider: ^5.1.1
   convex_bottom_bar: ^3.2.0
   curved_navigation_bar: ^1.0.6
+  http: ^1.4.0
 
 dev_dependencies:
   flutter_test:
@@ -40,6 +41,13 @@ flutter:
     - assets/images/
     - assets/images/banners/
     - assets/images/groceries/
+    # >> categories
+    - assets/images/categories/vegetables/
+    - assets/images/categories/meat/
+    - assets/images/categories/fruits/
+    - assets/images/categories/drinks/
+    - assets/images/categories/dairy/
+    - assets/images/categories/bakery/
     - assets/images/icons/
 
 

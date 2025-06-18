@@ -17,4 +17,16 @@ class KImages {
 
   // > details page
   static const String starIcon = 'assets/images/icons/star.png';
+
+  // > categories page
+  static const String catVegetables =
+      'assets/images/groceries/vege-categories.png';
+  static const String catFruits =
+      'assets/images/groceries/fruits-categories.png';
+  static const String catDairy = 'assets/images/groceries/dairy-categories.png';
+  static const String catMeat = 'assets/images/groceries/meat-categories.png';
+  static const String catSnacks =
+      'assets/images/groceries/snacks-categories.png';
+  static const String catBakery =
+      'assets/images/groceries/bread-categories.png';
 }

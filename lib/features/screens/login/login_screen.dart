@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:green_cart/common/appbar.dart';
+import 'package:green_cart/common/auth_appbar.dart';
 import 'package:green_cart/common/text_field.dart';
 import 'package:green_cart/features/screens/home/home_screen.dart';
 import 'package:green_cart/features/screens/login/widgets/auth_settings.dart';
@@ -29,7 +29,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
     return Scaffold(
       backgroundColor: KColors.background,
-      appBar: KAppBar(title: 'Login'),
+      appBar: KAuthAppBar(title: 'Login'),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: 25),
         child: Column(

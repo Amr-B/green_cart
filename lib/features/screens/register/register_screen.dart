@@ -3,7 +3,7 @@ import 'package:green_cart/common/text_field.dart';
 import 'package:green_cart/features/screens/home/home_screen.dart';
 import 'package:green_cart/features/screens/login/login_screen.dart';
 import 'package:green_cart/features/screens/register/widget/auth_settings_register.dart';
-import 'package:green_cart/common/appbar.dart';
+import 'package:green_cart/common/auth_appbar.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:green_cart/common/button.dart';
 import 'package:green_cart/features/utils/animations.dart';
@@ -31,7 +31,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
     return Scaffold(
       backgroundColor: KColors.background,
-      appBar: KAppBar(title: 'Register'),
+      appBar: KAuthAppBar(title: 'Register'),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: 25),
         child: Column(

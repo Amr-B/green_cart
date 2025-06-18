@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:green_cart/features/screens/categories/all_categoreis.dart';
+import 'package:green_cart/features/utils/animations.dart';
 
 class KSeeAllCategories extends StatelessWidget {
   const KSeeAllCategories({
@@ -18,7 +20,12 @@ class KSeeAllCategories extends StatelessWidget {
           ),
         ),
         TextButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              CustomPageRoute(child: AllCategoriesScreen()),
+            );
+          },
           child: Text(
             'See All',
             style: TextStyle(

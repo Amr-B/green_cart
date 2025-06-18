@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:green_cart/features/screens/cart/cart_screen.dart';
-import 'package:green_cart/features/screens/home/home_contents.dart';
+import 'package:green_cart/features/screens/home/home_content.dart';
 import 'package:green_cart/features/screens/profile/profile_screen.dart';
 import 'package:green_cart/features/utils/colors.dart';
 
