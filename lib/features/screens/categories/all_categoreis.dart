@@ -14,6 +14,7 @@ class AllCategoriesScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: KColors.background,
       appBar: AppBar(
+        surfaceTintColor: KColors.background,
         foregroundColor: KColors.dGreen,
         backgroundColor: KColors.background,
         centerTitle: true,
@@ -40,6 +41,9 @@ class AllCategoriesScreen extends StatelessWidget {
                 image: KImages.catVegetables,
                 color: KColors.tealGreen,
                 screenHeight: screenHeight,
+                right: -40,
+                bottom: -40,
+                imageHeight: screenHeight * 0.22,
               ),
               SizedBox(height: 20),
 
@@ -50,6 +54,9 @@ class AllCategoriesScreen extends StatelessWidget {
                 image: KImages.catFruits,
                 color: KColors.orangeYellow,
                 screenHeight: screenHeight,
+                right: -40,
+                bottom: -40,
+                imageHeight: screenHeight * 0.22,
               ),
 
               // > diary
@@ -60,6 +67,9 @@ class AllCategoriesScreen extends StatelessWidget {
                 image: KImages.catDairy,
                 color: KColors.lBlue,
                 screenHeight: screenHeight,
+                right: -10,
+                bottom: -10,
+                imageHeight: screenHeight * 0.22,
               ),
 
               // > meet
@@ -70,6 +80,9 @@ class AllCategoriesScreen extends StatelessWidget {
                 image: KImages.catMeat,
                 color: KColors.dRed,
                 screenHeight: screenHeight,
+                right: -40,
+                bottom: -50,
+                imageHeight: screenHeight * 0.22,
               ),
               // > snacks
               SizedBox(height: 20),
@@ -79,6 +92,9 @@ class AllCategoriesScreen extends StatelessWidget {
                 image: KImages.catSnacks,
                 color: KColors.orangeYellow,
                 screenHeight: screenHeight,
+                right: -40,
+                bottom: -60,
+                imageHeight: screenHeight * 0.22,
               ),
               SizedBox(height: 20),
 
@@ -89,6 +105,9 @@ class AllCategoriesScreen extends StatelessWidget {
                 image: KImages.catBakery,
                 color: KColors.brown,
                 screenHeight: screenHeight,
+                right: -40,
+                bottom: -40,
+                imageHeight: screenHeight * 0.18,
               ),
               SizedBox(height: 20),
             ],

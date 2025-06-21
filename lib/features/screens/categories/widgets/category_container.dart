@@ -8,6 +8,9 @@ class KCategoryContainer extends StatelessWidget {
     required this.itemsCount,
     required this.image,
     required this.color,
+    this.right,
+    this.bottom,
+    this.imageHeight,
   });
 
   final double screenHeight;
@@ -15,6 +18,9 @@ class KCategoryContainer extends StatelessWidget {
   final String itemsCount;
   final String image;
   final Color color;
+  final double? right;
+  final double? bottom;
+  final double? imageHeight;
 
   @override
   Widget build(BuildContext context) {
@@ -51,11 +57,11 @@ class KCategoryContainer extends StatelessWidget {
           ),
         ),
         Positioned(
-          right: -40,
-          bottom: -40,
+          right: right,
+          bottom: bottom,
           child: Image.asset(
             image,
-            height: screenHeight * 0.22,
+            height: imageHeight,
             fit: BoxFit.cover,
           ),
         ),

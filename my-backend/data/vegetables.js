@@ -38,14 +38,14 @@ const vegetables = [
         id: 6,
         name: "Cucumber",
         price: 3.25,
-        image: 'assets/images/categories/vegetables/cucumber.png',
+        image: 'assets/images/categories/vegetables/cucumbers.jpg',
         companyName: 'Fresh Picks'
     },
     {
         id: 7,
         name: "Bell Pepper",
         price: 4.10,
-        image: 'assets/images/categories/vegetables/bell_pepper.png',
+        image: 'assets/images/categories/vegetables/bell-pepper.jpg',
         companyName: 'Color Veggies'
     },
     {
@@ -66,7 +66,7 @@ const vegetables = [
         id: 10,
         name: "Broccoli",
         price: 5.25,
-        image: 'assets/images/categories/vegetables/broccoli.png',
+        image: 'assets/images/categories/vegetables/broccoli.jpg',
         companyName: 'Green Valley'
     },
     {
@@ -87,7 +87,7 @@ const vegetables = [
         id: 13,
         name: "Sweet Corn",
         price: 3.60,
-        image: 'assets/images/categories/vegetables/corn.png',
+        image: 'assets/images/categories/vegetables/sweet-corn.png',
         companyName: 'Golden Farm'
     },
     {
