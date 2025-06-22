@@ -2,8 +2,10 @@
 
 import 'dart:convert';
 import 'package:green_cart/data/api_endpoints.dart';
+import 'package:green_cart/models/categories/dairy_model.dart';
 import 'package:green_cart/models/categories/vegetables_model.dart';
 import 'package:http/http.dart' as http;
+import '../models/categories/fruits_model.dart';
 import '../models/new_groceries.dart';
 
 class DataProviders {
@@ -54,15 +56,62 @@ class DataProviders {
       final data = json.decode(response.body);
 
       if (category == 'groceries') {
-        final product = NewGroceriesModel.fromJson(data);
-        return product;
+        return NewGroceriesModel.fromJson(data);
       } else if (category == 'vegetables') {
-        final product = VegetablesCatModel.fromJson(data);
-        return product;
-      } else {}
-    } else {}
+        return VegetablesCatModel.fromJson(data);
+      } else if (category == 'fruits') {
+        return FruitsModel.fromJson(data);
+      } else if (category == 'dairy') {
+        return DairyModel.fromJson(data);
+      }
+    }
 
     throw Exception('Failed to load product from $category');
+  }
+
+  // > fruits
+  static Future<List<FruitsModel>> fetchFruitsCategory() async {
+    final response =
+        await http.get(Uri.parse('${ApiEndPoints.baseUrl}/fruits'));
+
+    if (response.statusCode == 200) {
+      final List<dynamic> jsonList = json.decode(response.body);
+      return jsonList.map((item) => FruitsModel.fromJson(item)).toList();
+    } else {
+      throw Exception('Failed to fetch fruits');
+    }
+  }
+
+  // ✅ Get one fruit by ID
+  static Future<FruitsModel> fetchFruitById(int id) async {
+    final response =
+        await http.get(Uri.parse('${ApiEndPoints.baseUrl}/fruits/$id'));
+
+    if (response.statusCode == 200) {
+      final jsonData = json.decode(response.body);
+      return FruitsModel.fromJson(jsonData);
+    } else {
+      throw Exception('Failed to fetch fruit');
+    }
+  }
+
+  // > get dairy
+  static Future<List<DairyModel>> fetchDairyCategory() async {
+    final response = await http.get(Uri.parse('${ApiEndPoints.baseUrl}/dairy'));
+
+    if (response.statusCode == 200) {
+      final List<dynamic> jsonList = json.decode(response.body);
+
+      if (jsonList.isEmpty) {
+        print('✅ API call succeeded but returned an empty dairy list.');
+      } else {
+        print('✅ Fetched ${jsonList.length} dairy items from API.');
+      }
+
+      return jsonList.map((item) => DairyModel.fromJson(item)).toList();
+    } else {
+      throw Exception('Failed to fetch dairy products');
+    }
   }
 
   // > define

@@ -3,6 +3,9 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const groceries = require('./data/groceries');
 const vegetables = require('./data/vegetables');
+const fruits = require('./data/fruits');
+const dairy = require('./data/dairy');
+
 
 
 const app = express();
@@ -26,6 +29,11 @@ app.get('/groceries/:id', (req, res) => {
     }
 });
 
+// > get all vegetables 
+app.get('/vegetables', (req, res) => {
+    res.json(vegetables);
+});
+
 // GET single vegetable by ID
 app.get('/vegetables/:id', (req, res) => {
     const id = parseInt(req.params.id);
@@ -39,10 +47,45 @@ app.get('/vegetables/:id', (req, res) => {
 });
 
 
-// > get all vegetables 
-app.get('/vegetables', (req, res) => {
-    res.json(vegetables);
+
+
+// GET single fruit by ID
+app.get('/fruits/:id', (req, res) => {
+    const id = parseInt(req.params.id);
+    const item = fruits.find(v => v.id === id);
+
+    if (item) {
+        res.json(item);
+    } else {
+        res.status(404).json({ error: 'Item not found' });
+    }
 });
+
+
+// > get all fruits 
+app.get('/fruits', (req, res) => {
+    res.json(fruits);
+});
+
+
+
+// > get all dairy 
+app.get('/dairy', (req, res) => {
+    res.json(dairy);
+});
+
+// GET single fruit by ID
+app.get('/dairy/:id', (req, res) => {
+    const id = parseInt(req.params.id);
+    const item = dairy.find(v => v.id === id);
+
+    if (item) {
+        res.json(item);
+    } else {
+        res.status(404).json({ error: 'Item not found' });
+    }
+});
+
 
 // POST إضافة منتج جديد
 app.post('/groceries', (req, res) => {
