@@ -11,6 +11,7 @@ class KCategoryContainer extends StatelessWidget {
     this.right,
     this.bottom,
     this.imageHeight,
+    this.onTap,
   });
 
   final double screenHeight;
@@ -21,51 +22,55 @@ class KCategoryContainer extends StatelessWidget {
   final double? right;
   final double? bottom;
   final double? imageHeight;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Container(
-          height: screenHeight * 0.13,
-          width: double.infinity,
-          decoration: BoxDecoration(
-            color: color,
-            borderRadius: BorderRadius.circular(12),
-          ),
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                title,
-                style: const TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
+    return GestureDetector(
+      onTap: onTap,
+      child: Stack(
+        children: [
+          Container(
+            height: screenHeight * 0.13,
+            width: double.infinity,
+            decoration: BoxDecoration(
+              color: color,
+              borderRadius: BorderRadius.circular(12),
+            ),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  title,
+                  style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
                 ),
-              ),
-              Text(
-                "$itemsCount Items",
-                style: TextStyle(
-                  fontSize: 14,
-                  color: Colors.white70,
+                Text(
+                  "$itemsCount Items",
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.white70,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
-        Positioned(
-          right: right,
-          bottom: bottom,
-          child: Image.asset(
-            image,
-            height: imageHeight,
-            fit: BoxFit.cover,
+          Positioned(
+            right: right,
+            bottom: bottom,
+            child: Image.asset(
+              image,
+              height: imageHeight,
+              fit: BoxFit.cover,
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

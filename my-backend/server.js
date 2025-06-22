@@ -5,6 +5,7 @@ const groceries = require('./data/groceries');
 const vegetables = require('./data/vegetables');
 const fruits = require('./data/fruits');
 const dairy = require('./data/dairy');
+const meat = require('./data/meat');
 
 
 
@@ -85,6 +86,26 @@ app.get('/dairy/:id', (req, res) => {
         res.status(404).json({ error: 'Item not found' });
     }
 });
+
+
+// > get all Meat 
+app.get('/meat', (req, res) => {
+    res.json(meat);
+});
+
+// GET single Meat by ID
+app.get('/meat/:id', (req, res) => {
+    const id = parseInt(req.params.id);
+    const item = meat.find(v => v.id === id);
+
+    if (item) {
+        res.json(item);
+    } else {
+        res.status(404).json({ error: 'Item not found' });
+    }
+});
+
+
 
 
 // POST إضافة منتج جديد

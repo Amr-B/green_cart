@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:green_cart/data/data_provider.dart';
 import 'package:green_cart/features/categories/dairy/diary_screen.dart';
 import 'package:green_cart/features/categories/fruits/fruits_screen.dart';
+import 'package:green_cart/features/categories/meat/meat_screen.dart';
 import 'package:green_cart/features/home/widgets/category_item.dart';
 import 'package:green_cart/features/home/widgets/custom_home_appbar.dart';
 import 'package:green_cart/features/home/widgets/grocery_item.dart';
@@ -98,7 +99,14 @@ class _HomeContentState extends State<HomeContent> {
                         image: KImages.dairy,
                       ),
                       KCircularCategoryItem(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            CustomPageRoute(
+                              child: MeatScreen(),
+                            ),
+                          );
+                        },
                         title: 'Meat',
                         image: KImages.meat,
                       ),

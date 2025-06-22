@@ -3,6 +3,7 @@
 import 'dart:convert';
 import 'package:green_cart/data/api_endpoints.dart';
 import 'package:green_cart/models/categories/dairy_model.dart';
+import 'package:green_cart/models/categories/meat_model.dart';
 import 'package:green_cart/models/categories/vegetables_model.dart';
 import 'package:http/http.dart' as http;
 import '../models/categories/fruits_model.dart';
@@ -63,6 +64,8 @@ class DataProviders {
         return FruitsModel.fromJson(data);
       } else if (category == 'dairy') {
         return DairyModel.fromJson(data);
+      } else if (category == 'meat') {
+        return MeatModel.fromJson(data);
       }
     }
 
@@ -103,10 +106,7 @@ class DataProviders {
       final List<dynamic> jsonList = json.decode(response.body);
 
       if (jsonList.isEmpty) {
-        print('✅ API call succeeded but returned an empty dairy list.');
-      } else {
-        print('✅ Fetched ${jsonList.length} dairy items from API.');
-      }
+      } else {}
 
       return jsonList.map((item) => DairyModel.fromJson(item)).toList();
     } else {
@@ -114,7 +114,19 @@ class DataProviders {
     }
   }
 
-  // > define
+  // > get meat
+  static Future<List<MeatModel>> fetchMeatCategory() async {
+    final response = await http.get(Uri.parse('${ApiEndPoints.baseUrl}/meat'));
+
+    if (response.statusCode == 200) {
+      final List<dynamic> jsonList = json.decode(response.body);
+
+      return jsonList.map((item) => MeatModel.fromJson(item)).toList();
+    } else {
+      throw Exception('Failed to fetch meat category');
+    }
+  }
+
   static Future<List<VegetablesCatModel>> fetchVegetablesCategory() async {
     final response = await http.get(Uri.parse(ApiEndPoints.vegetables));
 

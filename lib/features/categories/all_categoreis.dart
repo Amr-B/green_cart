@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:green_cart/features/categories/dairy/diary_screen.dart';
+import 'package:green_cart/features/categories/fruits/fruits_screen.dart';
+import 'package:green_cart/features/categories/meat/meat_screen.dart';
+import 'package:green_cart/features/categories/vegetables/vegetables_screen.dart';
 import 'package:green_cart/features/categories/widgets/category_container.dart';
+import 'package:green_cart/features/utils/animations.dart';
 import 'package:green_cart/features/utils/colors.dart';
 import 'package:green_cart/features/utils/images.dart';
 import 'package:green_cart/features/utils/responsive.dart';
@@ -36,6 +41,14 @@ class AllCategoriesScreen extends StatelessWidget {
             children: [
               // > vegetables
               KCategoryContainer(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    CustomPageRoute(
+                      child: VegetablesScreen(),
+                    ),
+                  );
+                },
                 title: 'Vegetables',
                 itemsCount: '25',
                 image: KImages.catVegetables,
@@ -49,6 +62,14 @@ class AllCategoriesScreen extends StatelessWidget {
 
               // > fruits
               KCategoryContainer(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    CustomPageRoute(
+                      child: FruitsScreen(),
+                    ),
+                  );
+                },
                 title: 'Fruits',
                 itemsCount: '25',
                 image: KImages.catFruits,
@@ -62,6 +83,14 @@ class AllCategoriesScreen extends StatelessWidget {
               // > diary
               SizedBox(height: 20),
               KCategoryContainer(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    CustomPageRoute(
+                      child: DiaryScreen(),
+                    ),
+                  );
+                },
                 title: 'Diary',
                 itemsCount: '25',
                 image: KImages.catDairy,
@@ -75,6 +104,14 @@ class AllCategoriesScreen extends StatelessWidget {
               // > meet
               SizedBox(height: 20),
               KCategoryContainer(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    CustomPageRoute(
+                      child: MeatScreen(),
+                    ),
+                  );
+                },
                 title: 'Meat',
                 itemsCount: '25',
                 image: KImages.catMeat,
