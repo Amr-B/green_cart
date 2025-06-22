@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:green_cart/cubits/cart/cart_item_cubit.dart';
 import 'package:green_cart/features/presentation/onboarding/onboarding_screen.dart';
 
 void main() {
@@ -10,14 +12,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Green Cart',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        useMaterial3: true,
-        fontFamily: 'SFProDisplay',
+    return MultiBlocProvider(
+      providers: [BlocProvider(create: (_) => CartCubit())],
+      child: MaterialApp(
+        title: 'Green Cart',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          useMaterial3: true,
+          fontFamily: 'SFProDisplay',
+        ),
+        home: OnboardingScreen(),
       ),
-      home: OnboardingScreen(),
     );
   }
 }

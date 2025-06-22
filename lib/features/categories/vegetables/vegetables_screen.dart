@@ -6,6 +6,8 @@ import 'package:green_cart/config/animations/animations.dart';
 import 'package:green_cart/config/themes/colors.dart';
 import 'package:green_cart/data/models/categories/vegetables_model.dart';
 
+import '../../../common/default_appBar.dart';
+
 class VegetablesScreen extends StatefulWidget {
   const VegetablesScreen({super.key});
 
@@ -26,18 +28,9 @@ class _VegetablesScreenState extends State<VegetablesScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: KColors.background,
-      appBar: AppBar(
-        surfaceTintColor: KColors.background,
-        foregroundColor: KColors.dGreen,
-        backgroundColor: KColors.background,
-        centerTitle: true,
-        title: const Text(
-          'Vegetables',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 25,
-          ),
-        ),
+      appBar: KAppBar(
+        title: 'Vegetables',
+        useDefaultBackground: false,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),

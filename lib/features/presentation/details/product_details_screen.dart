@@ -1,5 +1,7 @@
 // main screen file: product_details_screen.dart
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:green_cart/cubits/details/count_cubit.dart';
 import 'package:green_cart/data/data_provider.dart';
 import 'package:green_cart/features/presentation/details/widgets/details_content.dart';
 import 'package:green_cart/config/themes/colors.dart';
@@ -46,8 +48,14 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
           } else if (!snapshot.hasData) {
             return const Center(child: Text('Product not found'));
           }
-          return ProductDetailsContent(
-              product: snapshot.data!, screenHeight: screenHeight);
+          final product = snapshot.data!;
+          return BlocProvider(
+            create: (_) => ProductDetailsCubit(product.price.toDouble()),
+            child: ProductDetailsContent(
+              product: product,
+              screenHeight: screenHeight,
+            ),
+          );
         },
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:green_cart/common/default_appBar.dart';
 import 'package:green_cart/data/data_provider.dart';
 import 'package:green_cart/features/presentation/details/product_details_screen.dart';
 import 'package:green_cart/config/themes/colors.dart';
@@ -26,18 +27,9 @@ class _MeatScreenState extends State<MeatScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: KColors.background,
-      appBar: AppBar(
-        surfaceTintColor: KColors.background,
-        foregroundColor: KColors.dGreen,
-        backgroundColor: KColors.background,
-        centerTitle: true,
-        title: const Text(
-          'Dairy',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 25,
-          ),
-        ),
+      appBar: KAppBar(
+        title: 'Meat',
+        useDefaultBackground: false,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),

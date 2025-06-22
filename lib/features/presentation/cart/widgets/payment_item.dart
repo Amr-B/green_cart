@@ -26,7 +26,7 @@ class PaymentItem extends StatelessWidget {
           style: TextStyle(
             fontSize: 17,
           ),
-        )
+        ),
       ],
     );
   }
