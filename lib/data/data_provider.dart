@@ -2,12 +2,12 @@
 
 import 'dart:convert';
 import 'package:green_cart/data/api_endpoints.dart';
-import 'package:green_cart/models/categories/dairy_model.dart';
-import 'package:green_cart/models/categories/meat_model.dart';
-import 'package:green_cart/models/categories/vegetables_model.dart';
+import 'package:green_cart/data/models/categories/dairy_model.dart';
+import 'package:green_cart/data/models/categories/meat_model.dart';
+import 'package:green_cart/data/models/categories/vegetables_model.dart';
 import 'package:http/http.dart' as http;
-import '../models/categories/fruits_model.dart';
-import '../models/new_groceries.dart';
+import 'models/categories/fruits_model.dart';
+import 'models/new_groceries.dart';
 
 class DataProviders {
   static Future<NewGroceriesModel> fetchProductByIdLocally(int id) async {

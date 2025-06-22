@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:green_cart/data/data_provider.dart';
-import 'package:green_cart/features/home/widgets/grocery_item.dart';
-import 'package:green_cart/features/product_details/product_details_screen.dart';
-import 'package:green_cart/features/utils/animations.dart';
-import 'package:green_cart/features/utils/colors.dart';
-import 'package:green_cart/models/categories/dairy_model.dart';
+import 'package:green_cart/features/presentation/home/widgets/grocery_item.dart';
+import 'package:green_cart/features/presentation/details/product_details_screen.dart';
+import 'package:green_cart/config/animations/animations.dart';
+import 'package:green_cart/config/themes/colors.dart';
+import 'package:green_cart/data/models/categories/dairy_model.dart';
 
 class DiaryScreen extends StatefulWidget {
   const DiaryScreen({super.key});

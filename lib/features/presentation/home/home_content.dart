@@ -3,16 +3,16 @@ import 'package:green_cart/data/data_provider.dart';
 import 'package:green_cart/features/categories/dairy/diary_screen.dart';
 import 'package:green_cart/features/categories/fruits/fruits_screen.dart';
 import 'package:green_cart/features/categories/meat/meat_screen.dart';
-import 'package:green_cart/features/home/widgets/category_item.dart';
-import 'package:green_cart/features/home/widgets/custom_home_appbar.dart';
-import 'package:green_cart/features/home/widgets/grocery_item.dart';
-import 'package:green_cart/features/home/widgets/home_carousel.dart';
-import 'package:green_cart/features/home/widgets/see_all_categories.dart';
-import 'package:green_cart/features/product_details/product_details_screen.dart';
+import 'package:green_cart/features/presentation/home/widgets/category_item.dart';
+import 'package:green_cart/features/presentation/home/widgets/custom_home_appbar.dart';
+import 'package:green_cart/features/presentation/home/widgets/grocery_item.dart';
+import 'package:green_cart/features/presentation/home/widgets/home_carousel.dart';
+import 'package:green_cart/features/presentation/home/widgets/see_all_categories.dart';
+import 'package:green_cart/features/presentation/details/product_details_screen.dart';
 import 'package:green_cart/features/categories/vegetables/vegetables_screen.dart';
-import 'package:green_cart/features/utils/animations.dart';
-import 'package:green_cart/features/utils/images.dart';
-import 'package:green_cart/models/new_groceries.dart';
+import 'package:green_cart/config/animations/animations.dart';
+import 'package:green_cart/config/strings/images.dart';
+import 'package:green_cart/data/models/new_groceries.dart';
 
 class HomeContent extends StatefulWidget {
   const HomeContent({super.key});

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:green_cart/data/data_provider.dart';
-import 'package:green_cart/features/product_details/product_details_screen.dart';
-import 'package:green_cart/features/utils/colors.dart';
-import 'package:green_cart/models/categories/meat_model.dart';
+import 'package:green_cart/features/presentation/details/product_details_screen.dart';
+import 'package:green_cart/config/themes/colors.dart';
+import 'package:green_cart/data/models/categories/meat_model.dart';
 
-import '../../home/widgets/grocery_item.dart';
-import '../../utils/animations.dart';
+import '../../presentation/home/widgets/grocery_item.dart';
+import '../../../config/animations/animations.dart';
 
 class MeatScreen extends StatefulWidget {
   const MeatScreen({super.key});

@@ -2,9 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:green_cart/features/authentication/login/login_screen.dart';
-import 'package:green_cart/features/utils/animations.dart';
+import 'package:green_cart/config/animations/animations.dart';
 
-import '../../../utils/colors.dart';
+import '../../../../config/themes/colors.dart';
 
 class KNextOnButton extends StatelessWidget {
   const KNextOnButton({

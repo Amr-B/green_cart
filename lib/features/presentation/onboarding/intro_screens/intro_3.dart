@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:green_cart/features/utils/texts.dart';
+import 'package:green_cart/config/strings/texts.dart';
 
-import '../../../utils/colors.dart';
-import '../../../utils/images.dart';
+import '../../../../config/themes/colors.dart';
+import '../../../../config/strings/images.dart';
 
 class IntroPage3 extends StatelessWidget {
   const IntroPage3({super.key});

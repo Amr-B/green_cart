@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:green_cart/common/text_field.dart';
-import 'package:green_cart/features/home/home_screen.dart';
+import 'package:green_cart/features/presentation/home/home_screen.dart';
 import 'package:green_cart/features/authentication/login/login_screen.dart';
 import 'package:green_cart/features/authentication/register/widget/auth_settings_register.dart';
 import 'package:green_cart/common/auth_appbar.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:green_cart/common/button.dart';
-import 'package:green_cart/features/utils/animations.dart';
-import 'package:green_cart/features/utils/colors.dart';
-import 'package:green_cart/features/utils/images.dart';
-import 'package:green_cart/features/utils/texts.dart';
-import 'package:green_cart/features/utils/responsive.dart';
+import 'package:green_cart/config/animations/animations.dart';
+import 'package:green_cart/config/themes/colors.dart';
+import 'package:green_cart/config/strings/images.dart';
+import 'package:green_cart/config/strings/texts.dart';
+import 'package:green_cart/config/responsive/responsive.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:green_cart/features/utils/images.dart';
+import 'package:green_cart/config/strings/images.dart';
 
 class PriceRate extends StatelessWidget {
   final double price;

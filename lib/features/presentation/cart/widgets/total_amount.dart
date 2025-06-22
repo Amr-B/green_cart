@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:green_cart/features/utils/colors.dart';
+import 'package:green_cart/config/themes/colors.dart';
 
 class KTotalAmount extends StatelessWidget {
   const KTotalAmount({

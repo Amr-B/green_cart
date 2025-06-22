@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:green_cart/common/button.dart';
-import 'package:green_cart/features/cart/widgets/cart_item.dart';
-import 'package:green_cart/features/cart/widgets/payment_item.dart';
-import 'package:green_cart/features/cart/widgets/total_amount.dart';
-import 'package:green_cart/features/utils/colors.dart';
-import 'package:green_cart/features/utils/images.dart';
-import 'package:green_cart/features/utils/responsive.dart';
+import 'package:green_cart/features/presentation/cart/widgets/cart_item.dart';
+import 'package:green_cart/features/presentation/cart/widgets/payment_item.dart';
+import 'package:green_cart/features/presentation/cart/widgets/total_amount.dart';
+import 'package:green_cart/config/themes/colors.dart';
+import 'package:green_cart/config/strings/images.dart';
+import 'package:green_cart/config/responsive/responsive.dart';
 
 class CartScreen extends StatefulWidget {
   const CartScreen({super.key});

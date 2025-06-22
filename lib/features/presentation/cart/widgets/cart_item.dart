@@ -1,7 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
-import 'package:green_cart/features/cart/widgets/qnt_controller.dart';
+import 'package:green_cart/features/presentation/cart/widgets/qnt_controller.dart';
 
 class CartItemCard extends StatelessWidget {
   final String image;

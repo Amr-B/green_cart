@@ -1,9 +1,9 @@
 // main screen file: product_details_screen.dart
 import 'package:flutter/material.dart';
 import 'package:green_cart/data/data_provider.dart';
-import 'package:green_cart/features/product_details/widgets/details_content.dart';
-import 'package:green_cart/features/utils/colors.dart';
-import 'package:green_cart/features/utils/responsive.dart';
+import 'package:green_cart/features/presentation/details/widgets/details_content.dart';
+import 'package:green_cart/config/themes/colors.dart';
+import 'package:green_cart/config/responsive/responsive.dart';
 
 class ProductDetailsScreen extends StatefulWidget {
   final int productId;

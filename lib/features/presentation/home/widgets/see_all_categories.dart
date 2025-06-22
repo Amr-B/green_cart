@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:green_cart/features/categories/all_categoreis.dart';
-import 'package:green_cart/features/utils/animations.dart';
+import 'package:green_cart/config/animations/animations.dart';
 
 class KSeeAllCategories extends StatelessWidget {
   const KSeeAllCategories({

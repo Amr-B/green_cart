@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../utils/colors.dart';
+import '../../../../config/themes/colors.dart';
 
 class KAuthSettingsRegister extends StatelessWidget {
   final bool rememberMe;

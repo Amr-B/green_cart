@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../utils/colors.dart';
-import '../../../utils/images.dart';
-import '../../../utils/texts.dart';
+import '../../../../config/themes/colors.dart';
+import '../../../../config/strings/images.dart';
+import '../../../../config/strings/texts.dart';
 
 class IntroPage2 extends StatelessWidget {
   const IntroPage2({super.key});

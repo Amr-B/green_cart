@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:green_cart/features/cart/cart_screen.dart';
-import 'package:green_cart/features/home/home_content.dart';
-import 'package:green_cart/features/profile/profile_screen.dart';
-import 'package:green_cart/features/utils/colors.dart';
+import 'package:green_cart/features/presentation/cart/cart_screen.dart';
+import 'package:green_cart/features/presentation/home/home_content.dart';
+import 'package:green_cart/features/presentation/profile/profile_screen.dart';
+import 'package:green_cart/config/themes/colors.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

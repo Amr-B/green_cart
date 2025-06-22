@@ -4,10 +4,10 @@ import 'package:green_cart/features/categories/fruits/fruits_screen.dart';
 import 'package:green_cart/features/categories/meat/meat_screen.dart';
 import 'package:green_cart/features/categories/vegetables/vegetables_screen.dart';
 import 'package:green_cart/features/categories/widgets/category_container.dart';
-import 'package:green_cart/features/utils/animations.dart';
-import 'package:green_cart/features/utils/colors.dart';
-import 'package:green_cart/features/utils/images.dart';
-import 'package:green_cart/features/utils/responsive.dart';
+import 'package:green_cart/config/animations/animations.dart';
+import 'package:green_cart/config/themes/colors.dart';
+import 'package:green_cart/config/strings/images.dart';
+import 'package:green_cart/config/responsive/responsive.dart';
 
 class AllCategoriesScreen extends StatelessWidget {
   const AllCategoriesScreen({super.key});

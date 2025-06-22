@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../utils/colors.dart';
+import '../../../../config/themes/colors.dart';
 
 class KSkipOnButton extends StatelessWidget {
   const KSkipOnButton({
