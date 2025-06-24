@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Test User",
+    "email": "test@example.com",
+    "password": "$2b$10$Ru8nVLbGKAWk/PSsuZBGFuMI.FbsqZiiYUtTzt3NDHXPbh1LkAERa"
+  },
+  {
+    "name": "Amr Testing",
+    "email": "amr@example.com",
+    "password": "$2b$10$FdF7vTxoj0RmExQBxjAX9.t28G3HNcwleINHWvXmu2DmEIIPEYrFq"
+  }
+]

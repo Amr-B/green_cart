@@ -29,4 +29,7 @@ class KImages {
       'assets/images/groceries/snacks-categories.png';
   static const String catBakery =
       'assets/images/groceries/bread-categories.png';
+
+  // > recept
+  static const String payPal = 'assets/images/icons/paypal.png';
 }

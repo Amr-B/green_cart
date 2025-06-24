@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:green_cart/cubits/auth/auth_cubit.dart';
 import 'package:green_cart/cubits/cart/cart_item_cubit.dart';
 import 'package:green_cart/features/presentation/onboarding/onboarding_screen.dart';
 
 void main() {
   runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
 }
 
 class MyApp extends StatelessWidget {
@@ -13,7 +15,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [BlocProvider(create: (_) => CartCubit())],
+      providers: [
+        BlocProvider(create: (_) => AuthCubit()),
+        BlocProvider(create: (_) => CartCubit()),
+        // > >> >> >
+      ],
       child: MaterialApp(
         title: 'Green Cart',
         debugShowCheckedModeBanner: false,

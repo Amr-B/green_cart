@@ -6,12 +6,40 @@ const vegetables = require('./data/vegetables');
 const fruits = require('./data/fruits');
 const dairy = require('./data/dairy');
 const meat = require('./data/meat');
+const profile = require('./data/profile');
+const { createPaypalOrder } = require('./data/paypal');
+const authRoutes = require('./auth/auth');
+const { readUsers, writeUsers } = require('./auth/users');
+
 
 
 
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
+const PORT = 3000;
+
+app.listen(3000, () => {
+    console.log('🚀 Server running on http://localhost:3000');
+});
+
+
+// > auth
+app.use('/', authRoutes);
+
+
+
+app.post('/create-paypal-order', async (req, res) => {
+    try {
+        const { amount } = req.body;
+        const order = await createPaypalOrder(amount);
+        res.json(order);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json({ error: 'Failed to create PayPal order' });
+    }
+});
+
 
 // GET All groceries
 app.get('/groceries', (req, res) => {
@@ -106,6 +134,22 @@ app.get('/meat/:id', (req, res) => {
 });
 
 
+// > get user profile info
+app.get('/profile', (req, res) => {
+    res.json(profile);
+});
+
+app.get('/profile/:id', (req, res) => {
+    const id = parseInt(req.params.id);
+    const item = profile.find(v => v.id === id);
+
+    if (item) {
+        res.json(item);
+    } else {
+        res.status(404).json({ error: 'Item not found' });
+    }
+});
+
 
 
 // POST إضافة منتج جديد
@@ -116,6 +160,3 @@ app.post('/groceries', (req, res) => {
     res.status(201).json(grocery);
 });
 
-app.listen(3000, () => {
-    console.log('🚀 Server running on http://localhost:3000');
-});

@@ -12,7 +12,7 @@ import 'package:green_cart/features/presentation/details/product_details_screen.
 import 'package:green_cart/features/categories/vegetables/vegetables_screen.dart';
 import 'package:green_cart/config/animations/animations.dart';
 import 'package:green_cart/config/strings/images.dart';
-import 'package:green_cart/data/models/new_groceries.dart';
+import 'package:green_cart/data/models/categories/new_groceries.dart';
 
 class HomeContent extends StatefulWidget {
   const HomeContent({super.key});

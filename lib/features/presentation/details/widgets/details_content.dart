@@ -3,12 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:green_cart/cubits/cart/cart_item_cubit.dart';
 import 'package:green_cart/cubits/details/count_cubit.dart';
-import 'package:green_cart/features/presentation/cart/cart_screen.dart';
 import 'package:green_cart/common/back_appbar_button.dart';
 import 'package:green_cart/common/button.dart';
 import 'package:green_cart/features/presentation/details/widgets/price_and_rate.dart';
 import 'package:green_cart/features/presentation/details/widgets/product_count.dart';
-import 'package:green_cart/config/animations/animations.dart';
 
 class ProductDetailsContent extends StatefulWidget {
   final dynamic product;

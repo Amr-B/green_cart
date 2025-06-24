@@ -1,6 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
+import 'package:green_cart/config/responsive/responsive.dart';
 import 'package:green_cart/features/presentation/cart/widgets/qnt_controller.dart';
 
 class CartItemCard extends StatelessWidget {
@@ -23,6 +24,8 @@ class CartItemCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = Responsive.screenWidth(context);
+    final screenHeight = Responsive.screenHeight(context);
     return Container(
       height: 100,
       width: double.infinity,
@@ -44,7 +47,12 @@ class CartItemCard extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(8),
-            child: Image.asset(image, fit: BoxFit.cover),
+            child: Image.asset(
+              image,
+              fit: BoxFit.cover,
+              width: screenWidth * 0.3,
+              height: screenHeight * 0.2,
+            ),
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -55,7 +63,7 @@ class CartItemCard extends StatelessWidget {
                   name,
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 20,
+                    fontSize: 12,
                   ),
                 ),
               ),

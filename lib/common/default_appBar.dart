@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:green_cart/config/themes/colors.dart';
 import 'package:green_cart/features/presentation/home/home_screen.dart';
@@ -5,12 +7,12 @@ import 'package:green_cart/config/animations/animations.dart';
 
 class KAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
-  final bool useDefaultBackground; // ← البوليان
+  final bool useDefaultBackground;
 
   const KAppBar({
     super.key,
     required this.title,
-    this.useDefaultBackground = true, // ← القيمة الافتراضية
+    this.useDefaultBackground = true,
   });
 
   @override

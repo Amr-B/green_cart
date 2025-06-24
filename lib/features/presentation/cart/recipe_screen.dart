@@ -1,6 +1,15 @@
+// ignore_for_file: unnecessary_to_list_in_spreads
+
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:green_cart/common/icon_button.dart';
+import 'package:green_cart/config/strings/images.dart';
 import 'package:green_cart/cubits/cart/cart_item_cubit.dart';
+import 'package:green_cart/data/api_endpoints.dart';
+import 'package:http/http.dart' as http;
+import 'package:url_launcher/url_launcher.dart';
 
 class ReceiptScreen extends StatelessWidget {
   const ReceiptScreen({super.key});
@@ -76,6 +85,30 @@ class ReceiptScreen extends StatelessWidget {
                     ),
                   ],
                 ),
+                SizedBox(height: 50),
+                KIconButton(
+                  onTap: () async {
+                    final totalAmount = finalTotal.toStringAsFixed(2);
+
+                    final response = await http.post(
+                      Uri.parse('${ApiEndPoints.baseUrl}/create-paypal-order'),
+                      headers: {'Content-Type': 'application/json'},
+                      body: jsonEncode({'amount': totalAmount}),
+                    );
+
+                    if (response.statusCode == 200) {
+                      final data = jsonDecode(response.body);
+                      final approvalUrl = data['links'].firstWhere(
+                          (link) => link['rel'] == 'approve')['href'];
+
+                      // open browser
+                      launchUrl(Uri.parse(approvalUrl),
+                          mode: LaunchMode.externalApplication);
+                    } else {}
+                  },
+                  finalTotal: finalTotal,
+                  image: KImages.payPal,
+                )
               ],
             ),
           );

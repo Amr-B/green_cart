@@ -1,3 +1,4 @@
+// > widget imports
 import 'package:flutter/material.dart';
 import 'package:green_cart/common/auth_appbar.dart';
 import 'package:green_cart/common/text_field.dart';
@@ -6,6 +7,11 @@ import 'package:green_cart/features/authentication/login/widgets/auth_settings.d
 import 'package:green_cart/common/button.dart';
 import 'package:green_cart/features/authentication/register/register_screen.dart';
 import 'package:green_cart/config/animations/animations.dart';
+
+// > utils imports
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:green_cart/cubits/auth/auth_cubit.dart';
+import 'package:green_cart/cubits/auth/auth_state.dart';
 import 'package:green_cart/config/themes/colors.dart';
 import 'package:green_cart/config/strings/images.dart';
 import 'package:green_cart/config/strings/texts.dart';
@@ -30,53 +36,85 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       backgroundColor: KColors.background,
       appBar: KAuthAppBar(title: 'Login'),
-      body: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(horizontal: 25),
-        child: Column(
-          children: [
-            SizedBox(height: screenHeight * 0.08),
-            _buildLogo(screenHeight),
-            SizedBox(height: 20),
-            _buildHeadlines(),
-            SizedBox(height: 30),
+      body: BlocConsumer<AuthCubit, AuthState>(
+        listener: (context, state) {
+          if (state is AuthFailure) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(state.message),
+              ),
+            );
+          }
+          if (state is AuthSuccess) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text('Welcome!')),
+            );
+            Navigator.push(
+              context,
+              CustomPageRoute(
+                child: HomeScreen(),
+              ),
+            );
+          }
+        },
+        builder: (context, state) {
+          if (state is AuthLoading) {
+            return const Center(child: CircularProgressIndicator());
+          }
 
-            AuthTextField(
-              controller: emailController,
-              obscureText: false,
-              icon: Icons.email_outlined,
-              hintText: 'Email',
-            ),
-            const SizedBox(height: 15),
-            AuthTextField(
-              controller: passwordController,
-              obscureText: true,
-              icon: Icons.lock_outline,
-              hintText: 'Password',
-            ),
+          return SingleChildScrollView(
+            padding: EdgeInsets.symmetric(horizontal: 25),
+            child: Column(
+              children: [
+                SizedBox(height: screenHeight * 0.08),
+                _buildLogo(screenHeight),
+                SizedBox(height: 20),
+                _buildHeadlines(),
+                SizedBox(height: 30),
 
-            // > remember me
-            KAuthSettingsLogin(
-              rememberMe: rememberMe,
-              onRememberChanged: (value) {
-                setState(() => rememberMe = value!);
-              },
+                AuthTextField(
+                  controller: emailController,
+                  obscureText: false,
+                  icon: Icons.email_outlined,
+                  hintText: 'Email',
+                ),
+                const SizedBox(height: 15),
+                AuthTextField(
+                  controller: passwordController,
+                  obscureText: true,
+                  icon: Icons.lock_outline,
+                  hintText: 'Password',
+                ),
 
-              // > register instead
-              onRegisterTap: () {
-                Navigator.push(
-                    context, CustomPageRoute(child: RegisterScreen()));
-              },
+                // > remember me
+                KAuthSettingsLogin(
+                  rememberMe: rememberMe,
+                  onRememberChanged: (value) {
+                    setState(() => rememberMe = value!);
+                  },
+
+                  // > register instead
+                  onRegisterTap: () {
+                    Navigator.push(
+                        context, CustomPageRoute(child: RegisterScreen()));
+                  },
+                ),
+                SizedBox(height: 10),
+                KButton(
+                  onTap: () {
+                    context.read<AuthCubit>().login(
+                          emailController.text.trim(),
+                          passwordController.text.trim(),
+                          rememberMe,
+                        );
+                  },
+                  screenHeight: screenHeight,
+                  title: 'Login',
+                ),
+              ],
             ),
-            SizedBox(height: 10),
-            KButton(
-              onTap: () {
-                Navigator.push(context, CustomPageRoute(child: HomeScreen()));
-              },
-              screenHeight: screenHeight,
-              title: 'Login',
-            ),
-          ],
-        ),
+          );
+        },
       ),
     );
   }

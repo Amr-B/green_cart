@@ -19,10 +19,11 @@ dependencies:
   smooth_page_indicator: ^1.2.1
   iconsax: ^0.0.8
   carousel_slider: ^5.1.1
-  convex_bottom_bar: ^3.2.0
   curved_navigation_bar: ^1.0.6
   http: ^1.4.0
   flutter_bloc: ^9.1.1
+  url_launcher: ^6.3.1
+  shared_preferences: ^2.5.3
 
 dev_dependencies:
   flutter_test:

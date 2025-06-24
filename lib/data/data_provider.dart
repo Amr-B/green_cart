@@ -5,9 +5,10 @@ import 'package:green_cart/data/api_endpoints.dart';
 import 'package:green_cart/data/models/categories/dairy_model.dart';
 import 'package:green_cart/data/models/categories/meat_model.dart';
 import 'package:green_cart/data/models/categories/vegetables_model.dart';
+import 'package:green_cart/data/models/profile/profile_model.dart';
 import 'package:http/http.dart' as http;
 import 'models/categories/fruits_model.dart';
-import 'models/new_groceries.dart';
+import 'models/categories/new_groceries.dart';
 
 class DataProviders {
   static Future<NewGroceriesModel> fetchProductByIdLocally(int id) async {
@@ -127,6 +128,19 @@ class DataProviders {
     }
   }
 
+  // > user profile method
+  static Future<List<ProfileModel>> fetchProfiles() async {
+    final response =
+        await http.get(Uri.parse('${ApiEndPoints.baseUrl}/profile'));
+
+    if (response.statusCode == 200) {
+      final List<dynamic> jsonList = json.decode(response.body);
+      return jsonList.map((item) => ProfileModel.fromJson(item)).toList();
+    } else {
+      throw Exception('Failed to fetch profiles');
+    }
+  }
+
   static Future<List<VegetablesCatModel>> fetchVegetablesCategory() async {
     final response = await http.get(Uri.parse(ApiEndPoints.vegetables));
 
@@ -141,6 +155,25 @@ class DataProviders {
       return jsonList.map((item) => VegetablesCatModel.fromJson(item)).toList();
     } else {
       throw Exception('Failed to fetch vegetables');
+    }
+  }
+
+  static Future<void> createPaypalPayment() async {
+    final response = await http.post(
+      Uri.parse('${ApiEndPoints.baseUrl}/create-paypal-order'),
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode({"amount": "20.00"}),
+    );
+
+    if (response.statusCode == 200) {
+      final data = jsonDecode(response.body);
+      final approvalLink =
+          data['links'].firstWhere((link) => link['rel'] == 'approve')['href'];
+
+      print('Open this URL for approval: $approvalLink');
+    } else {
+      print('Error: ${response.statusCode}');
+      print('Body: ${response.body}');
     }
   }
 }
