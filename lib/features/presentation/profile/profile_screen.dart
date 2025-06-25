@@ -10,6 +10,7 @@ import 'package:green_cart/data/models/profile/profile_model.dart';
 import 'package:green_cart/features/authentication/login/login_screen.dart';
 import 'package:green_cart/features/presentation/profile/widgets/setting_widget.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../cubits/auth/auth_cubit.dart';
 
@@ -30,8 +31,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
 
   Future<ProfileModel> _fetchUser() async {
+    final prefs = await SharedPreferences.getInstance();
+    final loggedInEmail = prefs.getString('loggedInEmail');
+
+    if (loggedInEmail == null) {
+      throw Exception('No logged in user found');
+    }
+
     final profiles = await DataProviders.fetchProfiles();
-    return profiles.first;
+
+    final userProfile = profiles.firstWhere(
+      (profile) => profile.email == loggedInEmail,
+      orElse: () => throw Exception('Profile not found'),
+    );
+
+    return userProfile;
   }
 
   @override

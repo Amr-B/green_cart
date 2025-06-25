@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 // > widget imports
 import 'package:flutter/material.dart';
 import 'package:green_cart/common/auth_appbar.dart';
@@ -16,6 +18,7 @@ import 'package:green_cart/config/themes/colors.dart';
 import 'package:green_cart/config/strings/images.dart';
 import 'package:green_cart/config/strings/texts.dart';
 import 'package:green_cart/config/responsive/responsive.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -37,7 +40,7 @@ class _LoginScreenState extends State<LoginScreen> {
       backgroundColor: KColors.background,
       appBar: KAuthAppBar(title: 'Login'),
       body: BlocConsumer<AuthCubit, AuthState>(
-        listener: (context, state) {
+        listener: (context, state) async {
           if (state is AuthFailure) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
@@ -45,10 +48,18 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             );
           }
+
           if (state is AuthSuccess) {
+            if (rememberMe) {
+              final prefs = await SharedPreferences.getInstance();
+              await prefs.setString(
+                  'loggedInEmail', emailController.text.trim());
+            }
+
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(content: Text('Welcome!')),
             );
+
             Navigator.push(
               context,
               CustomPageRoute(

@@ -1,11 +1,11 @@
 class ProfileModel {
-  final int uid;
+  final int id;
   final String name;
   final String email;
   final String image;
 
   ProfileModel({
-    required this.uid,
+    required this.id,
     required this.name,
     required this.email,
     required this.image,
@@ -13,16 +13,16 @@ class ProfileModel {
 
   factory ProfileModel.fromJson(Map<String, dynamic> json) {
     return ProfileModel(
-      uid: json['uid'],
+      id: json['id'],
       name: json['name'],
       email: json['email'],
-      image: json['image'],
+      image: json['image'] ?? '',
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
-      'uid': uid,
+      'id': id,
       'name': name,
       'email': email,
       'image': image,

@@ -131,10 +131,10 @@ class DataProviders {
   // > user profile method
   static Future<List<ProfileModel>> fetchProfiles() async {
     final response =
-        await http.get(Uri.parse('${ApiEndPoints.baseUrl}/profile'));
+        await http.get(Uri.parse('${ApiEndPoints.baseUrl}/profiles'));
 
     if (response.statusCode == 200) {
-      final List<dynamic> jsonList = json.decode(response.body);
+      final List<dynamic> jsonList = jsonDecode(response.body);
       return jsonList.map((item) => ProfileModel.fromJson(item)).toList();
     } else {
       throw Exception('Failed to fetch profiles');

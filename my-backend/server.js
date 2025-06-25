@@ -6,10 +6,9 @@ const vegetables = require('./data/vegetables');
 const fruits = require('./data/fruits');
 const dairy = require('./data/dairy');
 const meat = require('./data/meat');
-const profile = require('./data/profile');
 const { createPaypalOrder } = require('./data/paypal');
 const authRoutes = require('./auth/auth');
-const { readUsers, writeUsers } = require('./auth/users');
+const { readProfiles } = require('./auth/profiles');
 
 
 
@@ -26,6 +25,23 @@ app.listen(3000, () => {
 
 // > auth
 app.use('/', authRoutes);
+
+app.get('/profiles/:id', (req, res) => {
+    try {
+        const id = parseInt(req.params.id);
+        const profiles = readProfiles();
+        const profile = profiles.find(p => p.id === id);
+
+        if (!profile) {
+            return res.status(404).json({ error: 'Profile not found' });
+        }
+
+        res.json(profile);
+    } catch (err) {
+        res.status(500).json({ error: 'Failed to read profile' });
+    }
+});
+
 
 
 
@@ -125,23 +141,6 @@ app.get('/meat', (req, res) => {
 app.get('/meat/:id', (req, res) => {
     const id = parseInt(req.params.id);
     const item = meat.find(v => v.id === id);
-
-    if (item) {
-        res.json(item);
-    } else {
-        res.status(404).json({ error: 'Item not found' });
-    }
-});
-
-
-// > get user profile info
-app.get('/profile', (req, res) => {
-    res.json(profile);
-});
-
-app.get('/profile/:id', (req, res) => {
-    const id = parseInt(req.params.id);
-    const item = profile.find(v => v.id === id);
 
     if (item) {
         res.json(item);

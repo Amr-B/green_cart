@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:green_cart/config/animations/animations.dart';
 import 'package:green_cart/config/strings/images.dart';
+
+import '../search_page.dart';
+import 'search_widget.dart';
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({super.key});
@@ -39,33 +43,17 @@ class CustomAppBar extends StatelessWidget {
           ),
           SizedBox(height: 20),
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Expanded(
-                child: TextField(
-                  decoration: InputDecoration(
-                    hintText: 'Search Groceries',
-                    hintStyle: TextStyle(color: Colors.white70),
-                    prefixIcon: Icon(Icons.search, color: Colors.white),
-                    filled: true,
-                    fillColor: Color(0xFF1c5d47),
-                    contentPadding: EdgeInsets.symmetric(vertical: 0),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
-                      borderSide: BorderSide.none,
+              KSearchWidget(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    CustomPageRoute(
+                      child: SearchPage(),
                     ),
-                  ),
-                  style: TextStyle(color: Colors.white),
-                ),
-              ),
-              SizedBox(width: 10),
-              Container(
-                width: 45,
-                height: 45,
-                decoration: BoxDecoration(
-                  color: Colors.tealAccent.shade700,
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: Icon(Icons.tune, color: Colors.white),
+                  );
+                },
               ),
             ],
           ),
