@@ -47,9 +47,7 @@ flutter:
     - assets/images/categories/vegetables/
     - assets/images/categories/meat/
     - assets/images/categories/fruits/
-    - assets/images/categories/drinks/
     - assets/images/categories/dairy/
-    - assets/images/categories/bakery/
     - assets/images/icons/
 
 
@@ -58,12 +56,12 @@ flutter:
   fonts:
     - family: SFProDisplay
       fonts:
-        - asset: assets/fonts/SFPRODISPLAYBLACKITALIC.otf
-        - asset: assets/fonts/SFPRODISPLAYBOLD.otf
-        - asset: assets/fonts/SFPRODISPLAYHEAVYITALIC.otf
-        - asset: assets/fonts/SFPRODISPLAYLIGHTITALIC.otf
-        - asset: assets/fonts/SFPRODISPLAYMEDIUM.otf
-        - asset: assets/fonts/SFPRODISPLAYREGULAR.otf
-        - asset: assets/fonts/SFPRODISPLAYSEMIBOLDITALIC.otf
-        - asset: assets/fonts/SFPRODISPLAYTHINITALIC.otf
-        - asset: assets/fonts/SFPRODISPLAYULTRALIGHTITALIC.otf
+        - asset: assets/fonts/SFPRODISPLAYBLACKITALIC.OTF
+        - asset: assets/fonts/SFPRODISPLAYBOLD.OTF
+        - asset: assets/fonts/SFPRODISPLAYHEAVYITALIC.OTF
+        - asset: assets/fonts/SFPRODISPLAYLIGHTITALIC.OTF
+        - asset: assets/fonts/SFPRODISPLAYMEDIUM.OTF
+        - asset: assets/fonts/SFPRODISPLAYREGULAR.OTF
+        - asset: assets/fonts/SFPRODISPLAYSEMIBOLDITALIC.OTF
+        - asset: assets/fonts/SFPRODISPLAYTHINITALIC.OTF
+        - asset: assets/fonts/SFPRODISPLAYULTRALIGHTITALIC.OTF
