@@ -12,8 +12,8 @@ import 'package:green_cart/config/animations/animations.dart';
 
 // > utils imports
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:green_cart/cubits/auth/auth_cubit.dart';
-import 'package:green_cart/cubits/auth/auth_state.dart';
+import 'package:green_cart/viewmodels/auth/auth_cubit.dart';
+import 'package:green_cart/viewmodels/auth/auth_state.dart';
 import 'package:green_cart/config/themes/colors.dart';
 import 'package:green_cart/config/strings/images.dart';
 import 'package:green_cart/config/strings/texts.dart';

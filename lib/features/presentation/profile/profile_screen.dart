@@ -12,7 +12,7 @@ import 'package:green_cart/features/presentation/profile/widgets/setting_widget.
 import 'package:iconsax/iconsax.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../../cubits/auth/auth_cubit.dart';
+import '../../../viewmodels/auth/auth_cubit.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});

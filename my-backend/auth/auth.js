@@ -18,7 +18,7 @@ const JWT_SECRET = "es4332auth4w1localhost3000loginregisterapi";
 router.post('/register', async (req, res) => {
     const { name, email, password } = req.body;
 
-    const users = readUsers(); // اقرأ المستخدمين من الملف
+    const users = readUsers();
 
     const exists = users.find(user => user.email === email);
     if (exists) return res.status(400).json({ error: "User already exists" });
@@ -28,7 +28,7 @@ router.post('/register', async (req, res) => {
 
     const newUser = { id: userId, name, email, password: hashedPassword };
     users.push(newUser);
-    writeUsers(users); // خزّن المستخدم الجديد
+    writeUsers(users);
 
     addProfile({
         id: userId,
@@ -83,28 +83,49 @@ router.get('/users', (req, res) => {
 
 
 
+
 // Login
 router.post('/login', async (req, res) => {
     const { email, password } = req.body;
 
     if (!email || !password) {
-        return res.status(400).json({ error: "Email and password are required" });
+        return res.status(400).json({
+            message: "Email and password are required",
+            data: null,
+            status_code: 400
+        });
     }
 
     const users = readUsers();
-
     const user = users.find(user => user.email === email);
-    if (!user) return res.status(401).json({ error: "Invalid credentials" });
+    if (!user) {
+        return res.status(401).json({
+            message: "Invalid credentials",
+            data: null,
+            status_code: 401
+        });
+    }
 
     const valid = await bcrypt.compare(password, user.password);
-    if (!valid) return res.status(401).json({ error: "Invalid credentials" });
+    if (!valid) {
+        return res.status(401).json({
+            message: "Invalid credentials",
+            data: null,
+            status_code: 401
+        });
+    }
 
     const token = jwt.sign({ email: user.email, name: user.name }, JWT_SECRET, {
         expiresIn: '1h',
     });
 
-    res.json({ token });
+    return res.status(200).json({
+        message: "success",
+        data: { token },
+        status_code: 200
+    });
 });
+
 
 
 module.exports = router;

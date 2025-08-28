@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:green_cart/cubits/auth/auth_cubit.dart';
+import 'package:green_cart/viewmodels/auth/auth_cubit.dart';
 import 'package:green_cart/cubits/cart/cart_item_cubit.dart';
 import 'package:green_cart/features/presentation/onboarding/onboarding_screen.dart';
 import 'package:green_cart/features/presentation/home/home_screen.dart';
