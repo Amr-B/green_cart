@@ -1,7 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
-import 'package:green_cart/features/authentication/login/login_screen.dart';
+import 'package:green_cart/features/authentication/login/login_view.dart';
 import 'package:green_cart/config/animations/animations.dart';
 
 import '../../../../config/themes/colors.dart';

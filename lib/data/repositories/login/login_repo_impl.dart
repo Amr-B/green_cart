@@ -4,7 +4,7 @@ import 'package:green_cart/core/error/failure.dart';
 import 'package:green_cart/core/services/api_service.dart';
 import 'package:green_cart/data/api_endpoints.dart';
 import 'package:green_cart/data/models/auth/login_model.dart';
-import 'package:green_cart/data/models/repositories/login_repo.dart';
+import 'package:green_cart/data/repositories/login/login_repo.dart';
 
 class LoginRepoImpl implements LoginRepo {
   final ApiService apiService;

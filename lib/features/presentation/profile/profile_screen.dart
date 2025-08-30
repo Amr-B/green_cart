@@ -7,12 +7,10 @@ import 'package:green_cart/config/responsive/responsive.dart';
 import 'package:green_cart/config/themes/colors.dart';
 import 'package:green_cart/data/data_provider.dart';
 import 'package:green_cart/data/models/profile/profile_model.dart';
-import 'package:green_cart/features/authentication/login/login_screen.dart';
+import 'package:green_cart/features/authentication/login/login_view.dart';
 import 'package:green_cart/features/presentation/profile/widgets/setting_widget.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-import '../../../viewmodels/auth/auth_cubit.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -144,8 +142,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
               SizedBox(height: 25),
               GestureDetector(
                 onTap: () {
-                  context.read<AuthCubit>().logout();
-
                   Navigator.pushAndRemoveUntil(
                     context,
                     MaterialPageRoute(builder: (_) => LoginScreen()),

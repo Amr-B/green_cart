@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:green_cart/viewmodels/auth/auth_cubit.dart';
-import 'package:green_cart/cubits/cart/cart_item_cubit.dart';
 import 'package:green_cart/features/presentation/onboarding/onboarding_screen.dart';
 import 'package:green_cart/features/presentation/home/home_screen.dart';
 
@@ -23,20 +20,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(create: (_) => AuthCubit()),
-        BlocProvider(create: (_) => CartCubit()),
-      ],
-      child: MaterialApp(
-        title: 'Green Cart',
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          useMaterial3: true,
-          fontFamily: 'SFProDisplay',
-        ),
-        home: isLoggedIn ? HomeScreen() : OnboardingScreen(),
+    return MaterialApp(
+      title: 'Green Cart',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        useMaterial3: true,
+        fontFamily: 'SFProDisplay',
       ),
+      home: isLoggedIn ? const HomeScreen() : const OnboardingScreen(),
     );
   }
 }
