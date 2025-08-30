@@ -10,5 +10,11 @@
     "name": "amr",
     "email": "amr@gmail.com.com",
     "password": "$2b$10$qwjAsnxW3Ym8TutMt53piuSjSpNOapJdprrGMUuUU.2iKcDvOLX8W"
+  },
+  {
+    "id": 702,
+    "name": "test register",
+    "email": "testerg@gmail.com",
+    "password": "$2b$10$89OLn.8mlzM8QGl.zodDpenIr/TW8CSeUPIpo1uuyD7/6gc9z8RaW"
   }
 ]

@@ -103,7 +103,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                   // > register instead
                   onRegisterTap: () {
                     Navigator.push(
-                        context, CustomPageRoute(child: Container()));
+                        context, CustomPageRoute(child: RegisterScreen()));
                   },
                 ),
                 SizedBox(height: 10),

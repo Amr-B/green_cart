@@ -41,7 +41,7 @@ class LoginCubit extends Cubit<LoginState> {
           emit(LoginSuccess());
         },
       );
-    } catch (e, s) {
+    } catch (e) {
       isLoading = false;
       emit(LoginError(error: "Unexpected error: $e"));
     }
