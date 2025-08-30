@@ -21,7 +21,11 @@ router.post('/register', async (req, res) => {
     const users = readUsers();
 
     const exists = users.find(user => user.email === email);
-    if (exists) return res.status(400).json({ error: "User already exists" });
+    if (exists) return res.status(400).json({
+        message: "User already exists",
+        data: null,
+        status_code: 400
+    });
 
     const hashedPassword = await bcrypt.hash(password, 10);
     const userId = users.length + 700;
@@ -37,8 +41,18 @@ router.post('/register', async (req, res) => {
         image: ''
     });
 
-    res.json({ message: "User registered and profile saved" });
+    // توليد التوكن زي اللوجن
+    const token = jwt.sign({ email: newUser.email, name: newUser.name }, JWT_SECRET, {
+        expiresIn: '1h',
+    });
+
+    res.status(200).json({
+        message: "success, new user registered",
+        data: { token },
+        status_code: 200
+    });
 });
+
 
 
 
