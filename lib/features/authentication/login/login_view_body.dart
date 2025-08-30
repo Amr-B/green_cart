@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'package:green_cart/common/auth_appbar.dart';
 import 'package:green_cart/common/text_field.dart';
 import 'package:green_cart/features/presentation/home/home_screen.dart';
@@ -11,7 +10,6 @@ import 'package:green_cart/config/themes/colors.dart';
 import 'package:green_cart/config/strings/images.dart';
 import 'package:green_cart/config/strings/texts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import '../../../config/animations/animations.dart';
 import '../../../config/responsive/responsive.dart';
 import '../../../cubits/auth/login/login_cubit.dart';

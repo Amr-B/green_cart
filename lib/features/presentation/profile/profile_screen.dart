@@ -1,7 +1,6 @@
 // ignore_for_file: unused_local_variable, deprecated_member_use
 
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:green_cart/common/default_appBar.dart';
 import 'package:green_cart/config/responsive/responsive.dart';
 import 'package:green_cart/config/themes/colors.dart';
