@@ -30,18 +30,29 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Future<ProfileModel> _fetchUser() async {
     final prefs = await SharedPreferences.getInstance();
     final loggedInEmail = prefs.getString('loggedInEmail');
+    print("📌 Logged in email from prefs: $loggedInEmail");
 
     if (loggedInEmail == null) {
-      throw Exception('No logged in user found');
+      throw Exception('No logged in user found in SharedPreferences');
     }
 
     final profiles = await DataProviders.fetchProfiles();
+    print("📌 Profiles fetched: ${profiles.length}");
+    for (var p in profiles) {
+      print("➡️ Profile: ${p.name} - ${p.email}");
+    }
 
     final userProfile = profiles.firstWhere(
-      (profile) => profile.email == loggedInEmail,
-      orElse: () => throw Exception('Profile not found'),
+      (profile) =>
+          profile.email.trim().toLowerCase() ==
+          loggedInEmail.trim().toLowerCase(),
+      orElse: () {
+        print("❌ No profile matched with email: $loggedInEmail");
+        throw Exception('Profile not found for $loggedInEmail');
+      },
     );
 
+    print("✅ Found user profile: ${userProfile.name} (${userProfile.email})");
     return userProfile;
   }
 

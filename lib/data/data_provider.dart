@@ -1,9 +1,11 @@
+import 'package:dio/dio.dart';
 import 'package:green_cart/core/services/data_service.dart';
 import 'package:green_cart/data/api_endpoints.dart';
 import 'package:green_cart/data/models/categories/dairy_model.dart';
 import 'package:green_cart/data/models/categories/meat_model.dart';
 import 'package:green_cart/data/models/categories/vegetables_model.dart';
 import 'package:green_cart/data/models/profile/profile_model.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'models/categories/fruits_model.dart';
 import 'models/categories/new_groceries.dart';
 
@@ -73,7 +75,17 @@ class DataProviders {
   }
 
   static Future<List<ProfileModel>> fetchProfiles() async {
-    final response = await _api.get('${ApiEndPoints.baseUrl}/profiles');
+    final prefs = await SharedPreferences.getInstance();
+    final token = prefs.getString('token');
+
+    final dio = Dio();
+    final response = await dio.get(
+      '${ApiEndPoints.baseUrl}/profiles',
+      options: Options(
+        headers: {'Authorization': 'Bearer $token'},
+      ),
+    );
+
     final List<dynamic> jsonList = response.data;
     return jsonList.map((item) => ProfileModel.fromJson(item)).toList();
   }
